@@ -1,10 +1,11 @@
-  <div *ngIf="isSignedIn">
+  <div *ngIf="!isSignedIn">
     <h2>Sign up</h2>
     <input type="text" #emailSignUp/>
     <input type="text" #passwordSignUp/>
     <button (click)="onSignUp(emailSignUp.value,passwordSignUp.value)">Sign up</button>
   </div>
-  <div *ngIf="isSignedIn">
+  <hr>
+  <div *ngIf="!isSignedIn">
     <h2>Sign in</h2>
     <input type="text" #email/>
     <input type="text" #password/>
