@@ -10,14 +10,14 @@ export class FirebaseService {
   isLoggedIn = false;
   constructor(public firebaseAuth: AngularFireAuth) { }
   // tslint:disable-next-line:typedef
-    async singin( email: string, password: string) {
+    async singIn( email: string, password: string) {
       await this.firebaseAuth.signInWithEmailAndPassword(email, password)
         .then(res => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
       });
   }
-  async singup( email: string, password: string) {
+  async singUp( email: string, password: string) {
     await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
       .then(res => {
         this.isLoggedIn = true;

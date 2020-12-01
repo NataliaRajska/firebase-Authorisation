@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   logOut() {
-    this.firebaseService.logout();
+    this.firebaseService.logOut();
     this.isLogOut.emit();
   }
 }

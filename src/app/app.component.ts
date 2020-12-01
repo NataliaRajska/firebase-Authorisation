@@ -23,14 +23,14 @@ export class AppComponent implements OnInit {
     }
 
     async onSignUp(email: string, password: string) {
-        await this.firebaseService.singup(email, password);
+        await this.firebaseService.singUp(email, password);
         if (this.firebaseService.isLoggedIn) {
             this.isSignedIn = true;
         }
     }
 
     async onSignIn(email: string, password: string) {
-        await this.firebaseService.singup(email, password);
+        await this.firebaseService.singIn(email, password);
         if (this.firebaseService.isLoggedIn) {
             this.isSignedIn = true;
         }
