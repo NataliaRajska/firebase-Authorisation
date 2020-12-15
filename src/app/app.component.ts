@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-      /*  if (localStorage.getItem('user') !== null) {
-            this.isSignedIn = true;
-        }
-        this.isSignedIn = false;*/
+        /*  if (localStorage.getItem('user') !== null) {
+              this.isSignedIn = true;
+          }
+          this.isSignedIn = false;*/
     }
 
     public onSignUp(email: string, password: string): void {
@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
             .subscribe();
     }
 
-    handleLogOut() {
-    this.isSignedIn = false;
-        }
+    handleLogOut(): void {
+        this.firebaseService.logOut();
+    }
 
 }
