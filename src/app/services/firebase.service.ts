@@ -30,15 +30,10 @@ export class FirebaseService {
     }
 
 
-
-
-
-  async singUp( email: string, password: string) {
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        // localStorage.setItem('user', JSON.stringify(res.user));
-      });
+  public singUp( email: string, password: string): Observable<UserCredential> {
+    return from(this.firebaseAuth.createUserWithEmailAndPassword(email, password))
+      .pipe(
+          tap(output => this.isLoggedIn = !!(output && output.user && output.user.email)));
   }
 
 
