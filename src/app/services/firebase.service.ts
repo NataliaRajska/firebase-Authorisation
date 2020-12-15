@@ -25,9 +25,9 @@ export class FirebaseService {
     public signIn(email: string, password: string): Observable<UserCredential> {
        return from(this.firebaseAuth.signInWithEmailAndPassword(email, password))
            .pipe(
-               filter(output => !!(output && output.user && output.user.email)),
-               tap(output => {
-                   this.isLoggedIn = true;
+               filter(output => {
+                   this.isLoggedIn = !!(output && output.user && output.user.email);
+                   return this.isLoggedIn;
                })
            );
     }
