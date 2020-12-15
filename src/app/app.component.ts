@@ -10,23 +10,19 @@ import {OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
 
     title = 'firebase-project';
-    isSignedIn = false;
 
     constructor(public firebaseService: FirebaseService) {
     }
 
     public ngOnInit(): void {
-        if (localStorage.getItem('user') !== null) {
+      /*  if (localStorage.getItem('user') !== null) {
             this.isSignedIn = true;
         }
-        this.isSignedIn = false;
+        this.isSignedIn = false;*/
     }
 
     async onSignUp(email: string, password: string) {
         await this.firebaseService.singUp(email, password);
-        if (this.firebaseService.isLoggedIn) {
-            this.isSignedIn = true;
-        }
     }
 
     /*async onSignIn(email: string, password: string) {
@@ -36,11 +32,9 @@ export class AppComponent implements OnInit {
         }
     }*/
 
-    public onSignIn(email: string, password: string) {
+    public onSignIn(email: string, password: string): void {
         this.firebaseService.signIn(email, password)
-            .subscribe((res) => {
-                this.firebaseService.isLoggedIn = true;
-            });
+            .subscribe();
     }
 
     handleLogOut() {
