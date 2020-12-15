@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     constructor(public firebaseService: FirebaseService) {
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         if (localStorage.getItem('user') !== null) {
             this.isSignedIn = true;
         }
@@ -29,11 +29,18 @@ export class AppComponent implements OnInit {
         }
     }
 
-    async onSignIn(email: string, password: string) {
+    /*async onSignIn(email: string, password: string) {
         await this.firebaseService.singIn(email, password);
         if (this.firebaseService.isLoggedIn) {
             this.isSignedIn = true;
         }
+    }*/
+
+    public onSignIn(email: string, password: string) {
+        this.firebaseService.signIn(email, password)
+            .subscribe((res) => {
+                this.firebaseService.isLoggedIn = true;
+            });
     }
 
     handleLogOut() {

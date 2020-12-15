@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import { from, Observable } from 'rxjs';
+import firebase from 'firebase';
+import UserCredential = firebase.auth.UserCredential;
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +11,30 @@ import {AngularFireAuth} from '@angular/fire/auth';
 
 export class FirebaseService {
 
-  isLoggedIn = false;
+  public isLoggedIn = false;
+
   constructor(public firebaseAuth: AngularFireAuth) { }
-  // tslint:disable-next-line:typedef
-    async singIn( email: string, password: string) {
+    /*async singIn( email: string, password: string) {
       await this.firebaseAuth.signInWithEmailAndPassword(email, password)
         .then(res => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
       });
-  }
+  }*/
+
+    public signIn(email: string, password: string): Observable<UserCredential> {
+       return from(this.firebaseAuth.signInWithEmailAndPassword(email, password))
+           .pipe(
+               tap(output => {
+                   this.isLoggedIn = !!(output && output.user && output.user.email);
+               })
+           );
+    }
+
+
+
+
+
   async singUp( email: string, password: string) {
     await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
       .then(res => {
@@ -29,3 +47,4 @@ export class FirebaseService {
     localStorage.removeItem('user');
   }
 }
+
