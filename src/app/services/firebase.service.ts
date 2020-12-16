@@ -1,3 +1,4 @@
+//todo remove uneccessary import
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {from, Observable, of} from 'rxjs';
@@ -13,6 +14,7 @@ export class FirebaseService {
 
   public isLoggedIn = false;
 
+  //todo remove commented code
   constructor(public firebaseAuth: AngularFireAuth) { }
     /*async singIn( email: string, password: string) {
       await this.firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -36,8 +38,9 @@ export class FirebaseService {
           tap(output => this.isLoggedIn = !!(output && output.user && output.user.email)));
   }
 
-
+// todo add private/public
   logOut(): void {
+        // todo set isloggedin flag as false
     from(this.firebaseAuth.signOut()).subscribe();
     // localStorage.removeItem('user');
   }

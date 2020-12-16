@@ -1,14 +1,22 @@
-  <div *ngIf="!firebaseService.isLoggedIn">
+<p>
+    <button (click)="signInWithGoogle()">Logowanie google</button>
+</p>
+<p>
+    {{userData | json}}
+</p>
+
+
+<div *ngIf="!firebaseService.isLoggedIn">
     <h2>Sign up</h2>
     <input type="text" #emailSignUp/>
     <input type="text" #passwordSignUp/>
     <button (click)="onSignUp(emailSignUp.value,passwordSignUp.value)">Sign up</button>
-  </div>
-  <hr>
-  <div *ngIf="!firebaseService.isLoggedIn">
+</div>
+<hr>
+<div *ngIf="!firebaseService.isLoggedIn">
     <h2>Sign in</h2>
     <input type="text" #email/>
     <input type="text" #password/>
     <button (click)="onSignIn(email.value,password.value)">Sign in</button>
-  </div>
+</div>
 <app-home *ngIf="firebaseService.isLoggedIn" (isLogOut)="handleLogOut()"></app-home>
