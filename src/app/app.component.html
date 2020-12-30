@@ -9,14 +9,15 @@
 <div *ngIf="!firebaseService.isLoggedIn">
     <h2>Sign up</h2>
     <input type="text" #emailSignUp/>
-    <input type="text" #passwordSignUp/>
+    <input type="password" #passwordSignUp/>
     <button (click)="onSignUp(emailSignUp.value,passwordSignUp.value)">Sign up</button>
 </div>
+<br>
 <hr>
 <div *ngIf="!firebaseService.isLoggedIn">
     <h2>Sign in</h2>
     <input type="text" #email/>
-    <input type="text" #password/>
+    <input type="password" #password/>
     <button (click)="onSignIn(email.value,password.value)">Sign in</button>
 </div>
 <app-home *ngIf="firebaseService.isLoggedIn" (isLogOut)="handleLogOut()"></app-home>

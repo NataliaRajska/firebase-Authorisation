@@ -79,7 +79,10 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     // todo private/public
-    handleLogOut(): void {
+    public handleLogOut(): void {
         this.firebaseService.logOut();
     }
 }
+
+
+
