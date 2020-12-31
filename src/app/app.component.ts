@@ -13,8 +13,8 @@ import { AuthMethodEnum, LoggedUserModel } from './models/loggedUser.model';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-    // todo public/private
-    title = 'firebase-project';
+    // public/private
+    public title = 'firebase-project';
 
     public authStateSubscription: Subscription;
 
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit, OnDestroy {
             });
     }
 
-    // todo private/public
+    // private/public
     public handleLogOut(): void {
         this.firebaseService.logOut();
     }

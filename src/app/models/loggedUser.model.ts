@@ -8,7 +8,7 @@ export class LoggedUserModel {
     // todo
     // constructor(input: UserCredential || SocialUser )
     constructor(input: any) {
-        //todo usunąć
+        // todo usunąć
         this.email = input && input.email;
         this.authToken = input && input.authToken;
         this.authMethod = input && input.authMethod;
@@ -17,10 +17,10 @@ export class LoggedUserModel {
     }
 
 
-    //todo
+    // todo
     // private assignSocialUser(input: SocialUser) {
 
-    //todo
+    // todo
     // private assignUserCredential(input: UserCredential) {
 
 }
