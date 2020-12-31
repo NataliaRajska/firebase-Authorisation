@@ -5,6 +5,7 @@ import { take } from 'rxjs/operators';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
 import { Subscription } from 'rxjs';
 import { AuthMethodEnum, LoggedUserModel } from './models/loggedUser.model';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -21,7 +22,8 @@ export class AppComponent implements OnInit, OnDestroy {
     public userData: LoggedUserModel;
 
     constructor(public firebaseService: FirebaseService,
-                private authService: SocialAuthService) {
+                private authService: SocialAuthService,
+                private router: Router) {
     }
 
     public signInWithGoogle(): void {
@@ -57,6 +59,10 @@ export class AppComponent implements OnInit, OnDestroy {
                 take(1)
             )
             .subscribe();
+    }
+
+    public goToRoute(): void {
+        this.router.navigate(['registration']);
     }
 
 
