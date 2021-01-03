@@ -22,6 +22,6 @@
 </div>
 <app-home *ngIf="firebaseService.isLoggedIn" (isLogOut)="handleLogOut()"></app-home>
 
-<div routerLink="/registration">go to registration</div>
+<div routerLink="/login">go to login</div>
 <div (click)="goToRoute()">go to by method</div>
 <router-outlet></router-outlet>
