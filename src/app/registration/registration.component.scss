@@ -1,0 +1,14 @@
+@import "../../assets/color";
+
+@mixin default-color-core($color-var) {
+  background-color: $color-var;
+  padding: 5px;
+}
+
+.registration-wrapper  {
+  @include default-color-core($primary-color);
+
+  &-h1 {
+    @include default-color-core($secondary-color);
+  }
+}

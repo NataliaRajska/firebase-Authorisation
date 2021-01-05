@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -74,8 +74,8 @@ export class AppComponent implements OnInit, OnDestroy {
             .subscribe((result) => {
                 this.userData = new LoggedUserModel(
                     {
-                        email: result.user.email,
-                        authToken: result.user.refreshToken,
+                        email: (result && result.user && result.user.email),
+                        authToken: (result && result.user && result.user.refreshToken),
                         authMethod: AuthMethodEnum.FIREBASE
                     });
 
