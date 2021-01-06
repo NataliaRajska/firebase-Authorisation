@@ -1,0 +1,84 @@
+/* logo */
+#logo {
+  height: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form {
+  max-width: 400px;
+  min-width: 300px;
+}
+
+/* style the container */
+.container {
+  display: flex;
+  border-radius: 5px;
+  padding: 20px 0 30px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  margin: 5px 0;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  box-shadow: 0 4px 4px rgb(29 21 9);
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+
+.fb {
+  background-color: #FEE4A0;
+}
+
+.twitter {
+  background-color: #fad0a0;
+}
+
+.google {
+  background-color: #FEE4A0;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #91a092;
+  color: black;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #7b8d7c;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  padding: 0 50px;
+  width: 100%;
+  margin: 0 auto auto;
+  text-align: left;
+}
+
+i {
+  margin-right: 20%;
+}
+
+.hide-md-lg {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
