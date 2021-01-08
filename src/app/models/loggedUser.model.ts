@@ -11,14 +11,14 @@ export class LoggedUserModel {
 
     constructor(input: UserCredential | SocialUser ){
         // todo factory pattern
-       if (input instanceof UserCredential){
-              this.email = input.user.email;
-            }
-       if (input instanceof SocialUser) {
+      if (input instanceof SocialUser) {
         this.email = input.email;
         this.authToken = input.authToken;
+      } else {
+        if (input && input.user){
+          this.email = (input as UserCredential).user.email;
+        }
       }
-        // todo check which input type it is and fire appropriate method
     }
 
     // private assignSocialUser(input: SocialUser) {
