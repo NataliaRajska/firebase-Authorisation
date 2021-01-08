@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Mocak",
+    "type": 2,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        116.04943912324164,
+        83.41153759526196
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Szuwary",
+    "type": 3,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        118.04943912324164,
+        82.41153759526196
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Running Track",
+    "type": 1,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        113.04943912324164,
+        29.41153759526196
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Living X",
+    "type": 5,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        181.04943912324163,
+        23.41153759526196
+      ]
+    }
+  }
+]
