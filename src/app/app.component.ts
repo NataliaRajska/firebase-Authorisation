@@ -33,16 +33,9 @@ export class AppComponent implements OnInit, OnDestroy {
     // todo unused code
     public ngOnInit(): void {
         this.authStateSubscription = this.authService.authState
-            .subscribe((result) => {
-                this.userData = new LoggedUserModel(
-                    {
-                        email: result.email,
-                        authToken: result.authToken,
-                        authMethod: AuthMethodEnum.GOOGLE
-                    });
-
-                // todo
-                // this.userData = new LoggedUserModel(result)
+            .subscribe((result: SocialUser) => {
+              console.log(result);
+              this.userData = new LoggedUserModel(result);
             });
     }
 
@@ -72,15 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 take(1)
             )
             .subscribe((result) => {
-                this.userData = new LoggedUserModel(
-                    {
-                        email: (result && result.user && result.user.email),
-                        authToken: (result && result.user && result.user.refreshToken),
-                        authMethod: AuthMethodEnum.FIREBASE
-                    });
-
-                // todo
-                // // this.userData = new LoggedUserModel(result)
+                this.userData = new LoggedUserModel(result)
             });
     }
 
