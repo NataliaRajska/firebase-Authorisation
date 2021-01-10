@@ -1,25 +1,25 @@
 [
   {
-    "id": 1,
-    "name": "Mocak",
-    "type": 2,
+    "id": 0,
+    "name": "Museum",
+    "type": 1,
     "geometry": {
-      "type": "Point",
+      "type": "MPoint",
       "coordinates": [
-        116.04943912324164,
-        83.41153759526196
+        -140.94094208758136,
+        86.84862169230125
       ]
     }
   },
   {
-    "id": 2,
-    "name": "Szuwary",
+    "id": 1,
+    "name": "Restaurant",
     "type": 3,
     "geometry": {
-      "type": "Point",
+      "type": "RPoint",
       "coordinates": [
-        118.04943912324164,
-        82.41153759526196
+       116.04943912324164,
+        83.41153759526196
       ]
     }
   },
@@ -28,7 +28,7 @@
     "name": "Running Track",
     "type": 1,
     "geometry": {
-      "type": "Point",
+      "type": "S Point",
       "coordinates": [
         113.04943912324164,
         29.41153759526196
@@ -37,10 +37,10 @@
   },
   {
     "id": 4,
-    "name": "Living X",
+    "name": "Hotel",
     "type": 5,
     "geometry": {
-      "type": "Point",
+      "type": "HPoint",
       "coordinates": [
         181.04943912324163,
         23.41153759526196
