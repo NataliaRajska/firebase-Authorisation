@@ -6,7 +6,11 @@ const routes: Routes = [
     {
         path: '',
         component: LoginComponent
-    }
+    },
+  {
+    path: 'map',
+    loadChildren: () => import('../map/map.module').then(m => m.MapModule)
+  }
 ];
 
 @NgModule({

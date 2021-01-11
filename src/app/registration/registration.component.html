@@ -1,7 +1,11 @@
 <div class="registration-wrapper">
   <h1 class="registration-wrapper-h1">Registration</h1>
-  <span>this a registration text lorem ipsum lorem lorem</span>
-  <div>
+  <div *ngIf="!firebaseService.isLoggedIn">
+    <h2>Sign up</h2>
+    <input type="text" #emailSignUp/>
+    <input type="password" #passwordSignUp/>
+    <button (click)="onSignUp(emailSignUp.value,passwordSignUp.value)">Sign up</button>
+  </div>  <div>
     <button routerLink="terms">Go to terms</button>
     <router-outlet></router-outlet>
     <p>registration line 3</p>
