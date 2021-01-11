@@ -1,63 +1,7 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
-<!-- header wrapper -->
-
-
-
-
-
-
-
-<p>
-  {{userData | json}}
-</p>
-
-<div class="container">
-  <img id='logo' src="assets/images/logo.svg" alt="logo">
-  <form action="/action_page.php">
-    <h2 style="text-align:center">Login</h2>
-    <div class="col">
-      <a href="#" class="fb btn">
-        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-      </a>
-      <a href="#" class="twitter btn">
-        <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-      </a>
-      <a href="#" (click)="signInWithGoogle()" class="google btn"><i class="fa fa-google fa-fw">
-      </i> Login with Google+
-      </a>
-    </div>
-
-    <div class="col hide-md-lg">
-      <div *ngIf="!firebaseService.isLoggedIn">
-        <h2>Sign up</h2>
-        <input type="text" #emailSignUp/>
-        <input type="password" #passwordSignUp/>
-        <button (click)="onSignUp(emailSignUp.value,passwordSignUp.value)">Sign up</button>
-      </div>
-      <br>
-      <hr>
-      <div *ngIf="!firebaseService.isLoggedIn">
-        <h2>Sign in</h2>
-        <input type="text" #email/>
-        <input type="password" #password/>
-        <button (click)="onSignIn(email.value,password.value)">Sign in</button>
-      </div>
-      <app-home *ngIf="firebaseService.isLoggedIn" (isLogOut)="handleLogOut()"></app-home>
-
-      <div routerLink="/login">go to login</div>
-      <div (click)="goToRoute()">go to by method</div>
-      <div routerLink="/map">go to map</div>
-    </div>
-  </form>
-</div>
-
-
-
-
-
-
+      <!-- header wrapper -->
       <router-outlet></router-outlet>
       <!-- end of header wrapper -->
     </div>

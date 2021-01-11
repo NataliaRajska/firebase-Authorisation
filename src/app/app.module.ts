@@ -49,6 +49,9 @@ import { HttpClientModule } from '@angular/common/http';
       ]
     } as SocialAuthServiceConfig,
   }],
+  exports: [
+    HomeComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
