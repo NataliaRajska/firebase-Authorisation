@@ -1,8 +1,18 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+<!-- header wrapper -->
+
+
+
+
+
+
+
 <p>
   {{userData | json}}
 </p>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Title</title>
+
 <div class="container">
   <img id='logo' src="assets/images/logo.svg" alt="logo">
   <form action="/action_page.php">
@@ -39,7 +49,17 @@
       <div routerLink="/login">go to login</div>
       <div (click)="goToRoute()">go to by method</div>
       <div routerLink="/map">go to map</div>
-      <router-outlet></router-outlet>
     </div>
   </form>
+</div>
+
+
+
+
+
+
+      <router-outlet></router-outlet>
+      <!-- end of header wrapper -->
+    </div>
+  </div>
 </div>
