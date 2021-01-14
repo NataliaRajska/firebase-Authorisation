@@ -7,11 +7,15 @@ const routes: Routes = [
     {
         path: '',
         component: RegistrationComponent,
-        children: [{
-            path: 'terms',
-            component: TermsComponent
-        }]
+        // children: [{
+        //     path: 'terms',
+        //     component: TermsComponent
+        // }]
     },
+  {
+    path: 'map',
+    loadChildren: () => import('../map/map.module').then(m => m.MapModule)
+  }
 ];
 
 @NgModule({

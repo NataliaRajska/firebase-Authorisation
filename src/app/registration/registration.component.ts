@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {take} from "rxjs/operators";
-import {FirebaseService} from "../services/firebase.service";
+import {take} from 'rxjs/operators';
+import {FirebaseService} from '../services/firebase.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +10,8 @@ import {FirebaseService} from "../services/firebase.service";
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(public firebaseService: FirebaseService) { }
+  constructor(public firebaseService: FirebaseService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,5 +23,9 @@ export class RegistrationComponent implements OnInit {
         take(1)
       )
       .subscribe();
+  }
+
+  public goToRoute(): void {
+    this.router.navigate(['registration']);
   }
 }
