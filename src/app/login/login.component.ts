@@ -5,6 +5,7 @@ import {LoggedUserModel} from '../models/loggedUser.model';
 import {Subscription} from 'rxjs';
 import {take} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   public title = 'firebase-project';
   public userData: LoggedUserModel;
   public authStateSubscription: Subscription;
+  loginData = new FormGroup({
+    'login': new FormControl(''),
+    'password': new FormControl('')
+  });
 
   constructor(public firebaseService: FirebaseService,
               private authService: SocialAuthService,
@@ -33,6 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe((result: SocialUser) => {
         console.log(result);
         this.userData = new LoggedUserModel(result);
+        console.log(this.userData);
       });
   }
 
@@ -47,13 +53,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
-  public onSignIn(email: string, password: string): void {
-    this.firebaseService.signIn(email, password)
+  public onSignIn(): void {
+    this.firebaseService.signIn(this.loginData.get('login').value, this.loginData.get('password').value)
       .pipe(
         take(1)
       )
       .subscribe((result) => {
-        this.userData = new LoggedUserModel(result)
+        this.userData = new LoggedUserModel(result);
+        console.log(this.userData);
       });
   }
 
