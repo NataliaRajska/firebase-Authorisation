@@ -10,6 +10,10 @@ import {Router} from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
+  public userEmail: string;
+  public userPassword: string;
+  public userConfirmPassword: string;
+
   constructor(public firebaseService: FirebaseService,
               private router: Router) { }
 
@@ -17,12 +21,12 @@ export class RegistrationComponent implements OnInit {
   }
 
 
-  public onSignUp(email: string, password: string): void {
-    this.firebaseService.singUp(email, password)
+  public onSignUp(): void {
+    /*this.firebaseService.singUp(email, password)
       .pipe(
         take(1)
       )
-      .subscribe();
+      .subscribe();*/
   }
 
   public goToRoute(): void {

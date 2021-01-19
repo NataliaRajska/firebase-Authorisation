@@ -11,11 +11,7 @@ const routes: Routes = [
         //     path: 'terms',
         //     component: TermsComponent
         // }]
-    },
-  {
-    path: 'map',
-    loadChildren: () => import('../map/map.module').then(m => m.MapModule)
-  }
+    }
 ];
 
 @NgModule({

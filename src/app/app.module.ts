@@ -11,11 +11,12 @@ import {
   SocialLoginModule
 } from 'angularx-social-login';
 import { HttpClientModule } from '@angular/common/http';
+import { Comp1Component } from './comp1/comp1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    Comp1Component
   ],
   imports: [
     BrowserModule,
@@ -49,9 +50,6 @@ import { HttpClientModule } from '@angular/common/http';
       ]
     } as SocialAuthServiceConfig,
   }],
-  exports: [
-    HomeComponent
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    console.log('destroy');
     if (this.authStateSubscription) {
       this.authStateSubscription.unsubscribe();
     }
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         take(1)
       )
       .subscribe((result) => {
-        this.userData = new LoggedUserModel(result)
+        this.userData = new LoggedUserModel(result);
       });
   }
 
