@@ -1,3 +1,4 @@
+{{ userData | json}}
 <div *ngIf="!firebaseService.isLoggedIn" class="login100-form validate-form">
 <span class="login100-form-title p-b-48">
   <img src="./assets/images/logo.svg">
@@ -30,8 +31,6 @@
       <div class="login100-form-bgbtn"></div>
       <button (click)="signInWithGoogle()" class="login100-form-btn">
         Login with Google+
-
-        {{ userData | json}}
       </button>
     </div>
   </div>
