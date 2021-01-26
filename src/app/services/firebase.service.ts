@@ -1,4 +1,3 @@
-// remove uneccessary import
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {from, Observable} from 'rxjs';
@@ -14,7 +13,6 @@ export class FirebaseService {
 
   public isLoggedIn = false;
 
-  // remove commented code
   constructor(public firebaseAuth: AngularFireAuth) { }
 
 
@@ -32,7 +30,6 @@ export class FirebaseService {
           tap(output => this.isLoggedIn = !!(output && output.user && output.user.email)));
   }
 
-// add private/public
   public logOut(): void {
         // set isloggedin flag as false
     from(this.firebaseAuth.signOut()).subscribe();

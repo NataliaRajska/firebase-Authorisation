@@ -6,7 +6,7 @@ import {Component, OnDestroy} from '@angular/core';
 })
 export class AppComponent {
 
-  public zmianna ='aaaaaa';
+  public zmianna = 'aaaaaa';
 
   public zlapWynik(wartosc: string): void {
     console.log('wynik to ', wartosc);

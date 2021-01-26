@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.router.navigate(['registration']);
   }
 
-  // todo unused code
   public ngOnInit(): void {
     this.authStateSubscription = this.authService.authState
       .subscribe((result: SocialUser) => {
@@ -58,7 +57,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       });
   }
 
-  // private/public
   public handleLogOut(): void {
     this.firebaseService.logOut();
   }
