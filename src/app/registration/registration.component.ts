@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {take} from 'rxjs/operators';
-import {FirebaseService} from '../services/firebase.service';
+import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
   public userPassword: string;
   public userConfirmPassword: string;
 
-  constructor(public firebaseService: FirebaseService,
+  constructor(public authService: AuthService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
 
 
   public onSignUp(): void {
-    /*this.firebaseService.singUp(email, password)
+    /*this.authService.singUpWithFirebase(email, password)
       .pipe(
         take(1)
       )

@@ -4,18 +4,18 @@ import { MapComponent } from './map.component';
 import { MapDataService } from './services/map-data.service';
 import { CommonModule } from '@angular/common';
 import { MapResultTypePipe } from './pipes/map-result-type.pipe';
-import {BrowserModule} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     MapComponent,
     MapResultTypePipe
   ],
-    imports: [
-      BrowserModule,
-        MapRoutingModule,
-        CommonModule
-    ],
+  imports: [
+    BrowserModule,
+    MapRoutingModule,
+    CommonModule
+  ],
   providers: [
     MapDataService
   ],

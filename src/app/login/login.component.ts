@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
-import {FirebaseService} from '../services/firebase.service';
+import {AuthService} from '../services/auth.service';
 import {LoggedUserModel} from '../models/loggedUser.model';
 import {Subscription} from 'rxjs';
 import {take} from 'rxjs/operators';
@@ -14,12 +14,10 @@ import {Router} from '@angular/router';
 
 
 export class LoginComponent implements OnInit, OnDestroy {
-  public title = 'firebase-project';
-  public userData: LoggedUserModel;
+
   public authStateSubscription: Subscription;
 
-  constructor(public firebaseService: FirebaseService,
-              private authService: SocialAuthService,
+  constructor(public authService: AuthService,
               private router: Router) {
   }
 
@@ -28,15 +26,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.authStateSubscription = this.authService.authState
+    this.authStateSubscription = this.authService.socialAuthState()
       .subscribe((result: SocialUser) => {
-        console.log(result);
-        this.userData = new LoggedUserModel(result);
+        this.authService.userData = new LoggedUserModel(result);
       });
   }
 
   public ngOnDestroy(): void {
-    console.log('destroy');
     if (this.authStateSubscription) {
       this.authStateSubscription.unsubscribe();
     }
@@ -44,20 +40,20 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
   public signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signInWithGoogle();
   }
 
-  public onSignIn(email: string, password: string): void {
-    this.firebaseService.signIn(email, password)
+  public signInWithFirebase(email: string, password: string): void {
+    this.authService.signInWithFirebase(email, password)
       .pipe(
         take(1)
       )
       .subscribe((result) => {
-        this.userData = new LoggedUserModel(result);
+        this.authService.userData = new LoggedUserModel(result);
       });
   }
 
   public handleLogOut(): void {
-    this.firebaseService.logOut();
+    this.authService.logOutWithFirebase();
   }
 }

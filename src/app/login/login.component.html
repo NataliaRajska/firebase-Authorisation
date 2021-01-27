@@ -1,5 +1,7 @@
-{{ userData | json}}
-<div *ngIf="!firebaseService.isLoggedIn" class="login100-form validate-form">
+{{ authService.userData | json}}<br />
+{{authService.isLoggedIn}}
+
+<div class="login100-form validate-form">
 <span class="login100-form-title p-b-48">
   <img src="./assets/images/logo.svg">
 </span>
@@ -20,7 +22,7 @@
   <div class="container-login100-form-btn">
     <div class="wrap-login100-form-btn">
       <div class="login100-form-bgbtn"></div>
-      <button  (click)="onSignIn(email.value,password.value)" class="login100-form-btn">
+      <button  (click)="signInWithFirebase(email.value,password.value)" class="login100-form-btn">
         Login
       </button>
     </div>

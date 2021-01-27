@@ -10,14 +10,12 @@ import {
   SocialLoginModule
 } from 'angularx-social-login';
 import { HttpClientModule } from '@angular/common/http';
-import { Comp1Component } from './comp1/comp1.component';
 import {MapModule} from './map/map.module';
 import {MapRoutingModule} from './map/map-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Comp1Component
   ],
   imports: [
     MapRoutingModule,
